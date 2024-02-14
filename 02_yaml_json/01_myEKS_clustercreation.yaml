@@ -1,0 +1,26 @@
+#Envs are stored in my CLOUD9 environment
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: myEKS
+  region: eu-west-1
+  version: "1.18"
+
+availabilityZones: ["eu-west-1a", "eu-west-1b", "eu-west-1c"]]
+
+managedNodeGroups:
+- name: nodegroup
+  desiredCapacity: 2
+  instanceType: t3.small
+  ssh:
+    enableSsm: true
+
+# To enable all of the control plane logs, uncomment below:
+# cloudWatch:
+#  clusterLogging:
+#    enableTypes: ["*"]
+
+secretsEncryption:
+  keyARN: ${MASTER_ARN}  #arn was set in cloud9 environment
+  

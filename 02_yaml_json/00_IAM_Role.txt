@@ -1,0 +1,2 @@
+used IAM role is: Cloud9_eksworkshop
+Attached Policy: AdministratorAccess

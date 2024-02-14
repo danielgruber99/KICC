@@ -1,0 +1,20 @@
+##Logging of Cluster:
+	enabling all five logging options within the cluster itself (Configuration > Logging)
+	-> log groups in CloudWatch
+
+
+##Logging Container Insights:
+
+
+Install Link for Container insights:
+curl -s https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/quickstart/cwagent-fluentd-quickstart.yaml | sed "s/{{cluster_name}}/eksworkshop-eksctl/;s/{{region_name}}/${AWS_REGION}/" | kubectl apply -f -
+
+The command above will:
+Create the Namespace amazon-cloudwatch.
+Create all the necessary security objects for both DaemonSet:
+	-SecurityAccount.
+	-ClusterRole.
+	-ClusterRoleBinding.
+Deploy Cloudwatch-Agent (responsible for sending the metrics to CloudWatch) as a DaemonSet.
+Deploy fluentd (responsible for sending the logs to Cloudwatch) as a DaemonSet.
+Deploy ConfigMap configurations for both DaemonSets.

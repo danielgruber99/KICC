@@ -1,0 +1,5 @@
+https://hub.docker.com/r/daniel1999/mywebping
+
+I built a container and pushed to my Docker repository,
+afterwards i created a repo in Amazon Elastic Container Registry referring to this image.
+(This amazon repo is deployed on my AWS EKS Cluster (EKS = Elastic Kubernetes Service, AWS = Amazon Web Services))
